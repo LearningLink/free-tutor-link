@@ -3,6 +3,7 @@ const express = require('express');
 
 const app = express();
 const PORT = 3000;
+const availabilityRouter = require('./routes/availability.js')
 
 app.use((req, res, next) => {
   console.log(`
@@ -17,6 +18,8 @@ app.use((req, res, next) => {
  * handle parsing request body
  */
 app.use(express.json());
+
+app.use('/availability', availabilityRouter)
 
 /**
  * route handler to respond with main app
