@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import Login from "./Login.js";
+import Main from "./mainPage/Main";
+import Profile from "./profilePage/Profile";
 
 const App = (props) => {
-  const [loggingIn, setLoggingIn] = useState(true);
+  const [loggingIn, setLoggingIn] = useState(false);
   const [mainPage, setMainPage] = useState(false);
-  const [profilePage, setProfilePage] = useState(false);
+  const [profilePage, setProfilePage] = useState(true);
 
-  if (logginIn) {
+  if (loggingIn) {
     return (
       <div>
         <Login />
