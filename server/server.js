@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const availabilityRouter = require('./routes/availability.js')
+const loginRouter = require('./routes/login.js')
+const profileRouter = require('./routes/profile.js')
 
 app.use((req, res, next) => {
   console.log(`
@@ -20,7 +22,10 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use('/availability', availabilityRouter)
+app.use('/login', loginRouter)
+app.use('/profile', profileRouter)
 
+ 
 /**
  * route handler to respond with main app
  */
