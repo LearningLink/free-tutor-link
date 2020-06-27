@@ -3,8 +3,8 @@ const router = express.Router();
 const profileController = require('../controllers/profileController');
 
 // initial profile page
-router.get('/', profileController.getSkills, profileController.getCurrentAvailability, (req, res) => {
-  return res.status(200).json({skills: res.locals.skills , availability: res.locals.availability});
+router.get('/:tutorid', profileController.getSkills, profileController.getCurrentAvailability, (req, res) => {
+	return res.status(200).json({ skills: res.locals.skills, availability: res.locals.availability });
 });
 // updating skill
 router.put('/', profileController.updateSkills, profileController.getSkills, (req, res) => {
