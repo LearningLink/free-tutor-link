@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const AvailableTutor = (props) => {
   return (
@@ -14,7 +14,7 @@ const AvailableTutor = (props) => {
         {props.startTime} to {props.endTime}
       </span>
       <span>
-        <a href={`mailto: props.email`}>Send an Email</a>
+        <a href={`mailto: ${props.email}`}>Send an Email</a>
       </span>
     </div>
   );

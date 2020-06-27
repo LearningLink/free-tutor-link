@@ -2,37 +2,36 @@ const db = require('../db.js');
 const profileController = {};
 
 profileController.getSkills = (req, res, next) => {
-	const tutorID = [ req.params.tutorid ];
-	const sqlQuery = `SELECT skill FROM "public"."tutors_skills" INNER JOIN skills on skill_id = skills._id gwhere tutor_id = $1`;
-	db
-		.query(sqlQuery, tutorID)
-		.then((data) => {
-			// console.log('DATA!!!', data.rows[0].skills);
-			console.log('GIMME THAT DATA', data.rows);
-			// res.locals.skills = [ ...data.rows[skill] ];
-			const arr = data.rows;
-			const result = [];
-			arr.forEach((obj) => {
-				result.push(obj.skill);
-			});
-			console.log(result);
+  const tutorID = [req.params.tutorid];
+  const sqlQuery = `SELECT skill FROM "public"."tutors_skills" INNER JOIN skills on skill_id = skills._id where tutor_id = $1`;
+  db.query(sqlQuery, tutorID)
+    .then((data) => {
+      // console.log('DATA!!!', data.rows[0].skills);
+      console.log('GIMME THAT DATA', data.rows);
+      // res.locals.skills = [ ...data.rows[skill] ];
+      const arr = data.rows;
+      const result = [];
+      arr.forEach((obj) => {
+        result.push(obj.skill);
+      });
+      console.log(result);
 
-			// console.log('DATA', [ data.rows.skill ]);
-			res.locals.skills = result;
-			return next();
-		})
-		.catch((err) => {
-			return next({
-				log: 'availabiltyController.getSkills ERROR: Error getting skills data from the database',
-				message: {
-					err: 'availabiltyController.getSkills: ERROR: Check server logs for details'
-				}
-			});
-		});
+      // console.log('DATA', [ data.rows.skill ]);
+      res.locals.skills = result;
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: 'availabiltyController.getSkills ERROR: Error getting skills data from the database',
+        message: {
+          err: 'availabiltyController.getSkills: ERROR: Check server logs for details',
+        },
+      });
+    });
 };
 
 profileController.updateSkills = (req, res, next) => {
-	return next();
+  return next();
 };
 
 profileController.getCurrentAvailability = (req, res, next) => {
@@ -52,11 +51,11 @@ profileController.getCurrentAvailability = (req, res, next) => {
 };
 
 profileController.addAvailability = (req, res, next) => {
-	return next();
+  return next();
 };
 
 profileController.deleteAvailability = (req, res, next) => {
-	return next();
+  return next();
 };
 
 module.exports = profileController;
