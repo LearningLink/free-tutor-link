@@ -1,22 +1,22 @@
-const profileController ={};
+const profileController = {};
 
 profileController.getSkills = (req, res, next) => {
 	return next();
 };
 
-profileController.updateSkills  = (req, res, next) => {
+profileController.updateSkills = (req, res, next) => {
 	return next();
 };
 
-profileController.getCurrentAvailability  = (req, res, next) => {
+profileController.getCurrentAvailability = (req, res, next) => {
 	return next();
 };
 
-profileController.addAvailability  = (req, res, next) => {
+profileController.addAvailability = (req, res, next) => {
 	return next();
 };
 
-profileController.deleteAvailability  = (req, res, next) => {
+profileController.deleteAvailability = (req, res, next) => {
 	return next();
 };
 

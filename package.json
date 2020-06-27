@@ -21,6 +21,7 @@
 	"homepage": "https://github.com/LovelaceDink/free-tutor-link#readme",
 	"dependencies": {
 		"express": "^4.12.3",
+		"pg": "^8.2.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.3.1"
 	},
