@@ -1,6 +1,6 @@
-const { Pool }  = require('pg');
+const { Pool } = require('pg');
 
-const PG_URI = "postgres://pbxpcmxr:jfFOHyIzqG5XBjISQWX4UKDPjj3GLGyh@ruby.db.elephantsql.com:5432/pbxpcmxr"
+const PG_URI = 'postgres://pbxpcmxr:jfFOHyIzqG5XBjISQWX4UKDPjj3GLGyh@ruby.db.elephantsql.com:5432/pbxpcmxr';
 
 const pool = new Pool({
 	connectionString: PG_URI
