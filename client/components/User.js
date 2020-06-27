@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Main from "./mainPage/Main";
-import Profile from "./profilePage/Profile";
+import React, { useState } from 'react';
+import Main from './mainPage/Main';
+import Profile from './profilePage/Profile';
 
 const User = (props) => {
   const [mainPage, setMainPage] = useState(true);
@@ -27,7 +27,7 @@ const User = (props) => {
   if (profilePage) {
     return (
       <div>
-        <Profile handleToMain={handleToMain}/>
+        <Profile handleToMain={handleToMain} />
       </div>
     );
   }
