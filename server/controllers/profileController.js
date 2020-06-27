@@ -40,11 +40,8 @@ profileController.getCurrentAvailability = (req, res, next) => {
 	console.log('ROUND TWO BABY', res.locals.skills);
 	const tutorID = [ req.params.tutorid ];
 	console.log('MY TUTOR ID!!', tutorID);
-	const sqlQuery = `SELECT date,  start_time AS  starting , end_time AS until FROM tutor_input_availability
-	LEFT JOIN tutors
-	ON tutors._id = $1
-	LEFT JOIN skills
-  ON skills._id = tutors._id;`;
+	const sqlQuery = `SELECT * FROM "public"."tutor_input_availability" 
+	WHERE tutor_id = $1`;
 
 	db.query(sqlQuery, tutorID).then((data) => {
 		// console.log('DATA!!!', data.rows[0].skills);
