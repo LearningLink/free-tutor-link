@@ -23,7 +23,8 @@
 		"express": "^4.12.3",
 		"pg": "^8.2.1",
 		"react": "^16.2.0",
-		"react-dom": "^16.3.1"
+		"react-dom": "^16.3.1",
+		"react-router-dom": "^5.2.0"
 	},
 	"devDependencies": {
 		"style-loader": "^1.2.1",

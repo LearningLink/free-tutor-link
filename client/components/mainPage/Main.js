@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AvailableTutor from "./AvailableTutor";
 import Search from "./Search";
+import Profile from "../profilePage/Profile";
 
 const Main = (props) => {
+  // const [tutors, setTutors] = useState([]);
+  const [error, setError] = useState(null);
+  const [profilePage, setProfilePage] = useState(false);
+
   // HOPE TO GET DATA IN ORDER OF DATE/TIME
   // placeholder data from backend
   // expected data:
@@ -33,13 +38,56 @@ const Main = (props) => {
     );
   });
 
+  // fetch data from the database
+  // get props for the AvailableTutor component
+
+  // useEffect(() => {
+  //   fetch('/availability/')
+  //     .then(resp => resp.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       setTutors(result);
+  //     },
+  //     (error) => {
+  //       setError(error);
+  //     })
+  // }, [])
+
+  function redirect() {
+    setProfilePage(true);
+  }
+  // const handleTimesClick = () => {
+  //   return (
+  //     <div>
+  //       <Profile />
+  //     </div>
+  //   );
+  // };
+  if (profilePage) {
+    return (
+      <div>
+        <Profile />
+      </div>
+    )
+  }
+  // {tutors}
+  // {tutor.email}
+
   return (
     <div>
       <div>
-        <button>My Tutoring Times</button>
+        <button onClick={redirect}>My Tutoring Times</button>
       </div>
       <Search />
-      {tutors}
+      {tutors.map((tutor) => {
+        <span>
+          {tutor.linkedinprofile}
+          {tutor.photo}
+          {tutor.name}
+          {tutor.start}
+          {tutor.end}
+        </span>;
+      })}
     </div>
   );
 };

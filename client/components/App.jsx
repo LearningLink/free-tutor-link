@@ -4,9 +4,9 @@ import Main from "./mainPage/Main";
 import Profile from "./profilePage/Profile";
 
 const App = (props) => {
-  const [loggingIn, setLoggingIn] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(true);
   const [mainPage, setMainPage] = useState(false);
-  const [profilePage, setProfilePage] = useState(true);
+  const [profilePage, setProfilePage] = useState(false);
 
   if (loggingIn) {
     return (
