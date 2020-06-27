@@ -37,7 +37,7 @@ loginController.getAccessToken = (req, res, next) => {
         userRes.body.profilePicture['displayImage~'].elements[0].identifiers[0].identifier;
       res.locals.newUser = {
         name: `${firstName} ${lastName}`,
-        userid: id,
+      //  userid: id,
         imgUrl,
       };
       return request
@@ -49,8 +49,20 @@ loginController.getAccessToken = (req, res, next) => {
       res.locals.newUser.email = email;
       console.log('newUser info: ', res.locals.newUser);
       // add user to database
+      const userData = res.locals.newUser;
+	    const sqlQuery = `INSERT INTO tutors (email, name, photo) VALUES ($1, $2, $3)` ;
+	    db
+		    .query(sqlQuery, [userData.email, userData.name, userData.imgUrl])
+		    .then(() => {
+          console.log('WORKINGGGG!')
+          // const sqlQuery = `SELECT _id FROM tutors where order` 
+          // db
+          // .query(sqlQuery)
+        }
+        )
+      // cookies?
       return res.redirect('http://localhost:3000/home');
-    })
+    }) 
     .catch((err) => {
       return next({
         log: `Error in loginController.getAccessToken: ${err}`,

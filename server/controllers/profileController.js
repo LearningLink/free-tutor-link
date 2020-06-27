@@ -35,19 +35,19 @@ profileController.updateSkills = (req, res, next) => {
 };
 
 profileController.getCurrentAvailability = (req, res, next) => {
-  // const currentSchedule = [ req.params.currentSchedule ];
-  console.log('ROUND TWO BABY', res.locals.skills);
-  const tutorID = [req.params.tutorid];
-  console.log('MY TUTOR ID!!', tutorID);
-  const sqlQuery = `SELECT * FROM "public"."tutor_input_availability" 
+	// const currentSchedule = [ req.params.currentSchedule ];
+	console.log('ROUND TWO BABY', res.locals.skills);
+	const tutorID = [ req.params.tutorid ];
+	console.log('MY TUTOR ID!!', tutorID);
+	const sqlQuery = `SELECT * FROM "public"."tutor_input_availability" 
 	WHERE tutor_id = $1`;
 
-  db.query(sqlQuery, tutorID).then((data) => {
-    // console.log('DATA!!!', data.rows[0].skills);
-    console.log('GIMME THAT DATA ROUND TWO', data.rows);
-    res.locals.availability = data.rows;
-    return next();
-  });
+	db.query(sqlQuery, tutorID).then((data) => {
+		// console.log('DATA!!!', data.rows[0].skills);
+		console.log('GIMME THAT DATA ROUND TWO', data.rows);
+		res.locals.availability = data.rows;
+		return next();
+	});
 };
 
 profileController.addAvailability = (req, res, next) => {
