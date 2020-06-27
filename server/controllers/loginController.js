@@ -30,8 +30,8 @@ loginController.getAccessToken = (req, res, next) => {
         .set('Authorization', `Bearer ${res.locals.accessToken}`);
     })
     .then((userRes) => {
-      const firstName = userRes.body.firstName.localized.en_US;
-      const lastName = userRes.body.lastName.localized.en_US;
+      const firstName = Object.values(userRes.body.firstName.localized)[0];
+      const lastName = Object.values(userRes.body.lastName.localized)[0];
       const { id } = userRes.body;
       const imgUrl =
         userRes.body.profilePicture['displayImage~'].elements[0].identifiers[0].identifier;
@@ -49,7 +49,7 @@ loginController.getAccessToken = (req, res, next) => {
       res.locals.newUser.email = email;
       console.log('newUser info: ', res.locals.newUser);
       // add user to database
-      return res.redirect('http://localhost:3000/');
+      return res.redirect('http://localhost:3000/home');
     })
     .catch((err) => {
       return next({

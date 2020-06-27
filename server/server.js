@@ -31,6 +31,7 @@ app.use('/profile', profileRouter);
  * route handler to respond with main app
  */
 app.use('/build', express.static(path.join(__dirname, '../build')));
+app.get('/home', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 // catch-all route handler for any requests to an unknown route

@@ -1,40 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import Login from "./Login.js";
-import Main from "./mainPage/Main";
-import Profile from "./profilePage/Profile";
+import User from "./User.js";
 
 const App = (props) => {
-  const [loggingIn, setLoggingIn] = useState(false);
-  const [mainPage, setMainPage] = useState(false);
-  const [profilePage, setProfilePage] = useState(true);
-
-  if (loggingIn) {
-    return (
-      <div>
-        <Login />
-      </div>
-    );
-  }
-
-  if (mainPage) {
-    return (
-      <div>
-        <Main />
-      </div>
-    );
-  }
-
-  if (profilePage) {
-    return (
-      <div>
-        <Profile />
-      </div>
-    );
-  }
-
   return (
     <div>
-      <div>Hello World, you're in the wrong place!</div>
+      <Switch>
+        <Route exact path="/">
+          <Login />
+        </Route>
+        <Route path="/home">
+          <User />
+        </Route>
+      </Switch>
     </div>
   );
 };

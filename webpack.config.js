@@ -11,9 +11,9 @@ module.exports = env => {
           mode: env.NODE_ENV , 
         devServer: {
           
-            publicPath: 'http://localhost:8080/build',
+            publicPath: '/build/',
             proxy: {    
-                '/api': { 
+                '/': { 
                     target: 'http://localhost:3000',
                     changeOrigin: true 
                 }
