@@ -1,11 +1,12 @@
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = 3000;
-const availabilityRouter = require('./routes/availability.js')
-const loginRouter = require('./routes/login.js')
-const profileRouter = require('./routes/profile.js')
+const availabilityRouter = require('./routes/availability.js');
+const loginRouter = require('./routes/login.js');
+const profileRouter = require('./routes/profile.js');
 
 app.use((req, res, next) => {
   console.log(`
@@ -20,12 +21,12 @@ app.use((req, res, next) => {
  * handle parsing request body
  */
 app.use(express.json());
+app.use(cookieParser());
 
-app.use('/availability', availabilityRouter)
-app.use('/login', loginRouter)
-app.use('/profile', profileRouter)
+app.use('/availability', availabilityRouter);
+app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
 
- 
 /**
  * route handler to respond with main app
  */
