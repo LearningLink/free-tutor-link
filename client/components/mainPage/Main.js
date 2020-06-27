@@ -68,26 +68,23 @@ const Main = (props) => {
       <div>
         <Profile />
       </div>
-    )
+    );
   }
-  // {tutors}
   // {tutor.email}
+  // {tutor.linkedinprofile}
+  // {tutor.photo}
+  // {tutor.name}
+  // {tutor.start}
+  // {tutor.end}
 
+  // {tutors}
   return (
     <div>
       <div>
-        <button onClick={redirect}>My Tutoring Times</button>
+        <button onClick={props.handleToProfile}>My Tutoring Times</button>
       </div>
       <Search />
-      {tutors.map((tutor) => {
-        <span>
-          {tutor.linkedinprofile}
-          {tutor.photo}
-          {tutor.name}
-          {tutor.start}
-          {tutor.end}
-        </span>;
-      })}
+      {tutors}
     </div>
   );
 };

@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon server/server.js",
 		"build": "webpack --env.NODE_ENV=production",
-		"dev": "webpack-dev-server --env.NODE_ENV=development"
+		"dev": "webpack-dev-server --env.NODE_ENV=development --open & nodemon server/server.js"
 	},
 	"repository": {
 		"type": "git",
@@ -20,11 +20,13 @@
 	},
 	"homepage": "https://github.com/LovelaceDink/free-tutor-link#readme",
 	"dependencies": {
+		"cookie-parser": "^1.4.5",
 		"express": "^4.12.3",
 		"pg": "^8.2.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.3.1",
-		"react-router-dom": "^5.2.0"
+		"react-router-dom": "^5.2.0",
+		"superagent": "^5.2.2"
 	},
 	"devDependencies": {
 		"style-loader": "^1.2.1",
