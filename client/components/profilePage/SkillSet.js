@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const skillSetSelection = (props) => {
   useEffect(() => {}, []);
   const checkbox = [];
-  let skills = ['JavaScript', 'SQL', 'React', 'Node Express'];
+  let skills = ["JavaScript", "SQL", "React", "Node Express"];
   // for (let i = 0; i < skills.length; i += 1) {
   //   checkbox.push(
   //     <div>
