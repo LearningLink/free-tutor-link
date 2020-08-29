@@ -1,4 +1,4 @@
-const db = require('../db.js');
+const db = require("../db.js");
 const profileController = {};
 
 profileController.getSkills = (req, res, next) => {
@@ -7,7 +7,7 @@ profileController.getSkills = (req, res, next) => {
   db.query(sqlQuery, tutorID)
     .then((data) => {
       // console.log('DATA!!!', data.rows[0].skills);
-      console.log('GIMME THAT DATA', data.rows);
+      console.log("GIMME THAT DATA", data.rows);
       // res.locals.skills = [ ...data.rows[skill] ];
       const arr = data.rows;
       const result = [];
@@ -22,9 +22,11 @@ profileController.getSkills = (req, res, next) => {
     })
     .catch((err) => {
       return next({
-        log: 'availabiltyController.getSkills ERROR: Error getting skills data from the database',
+        log:
+          "availabiltyController.getSkills ERROR: Error getting skills data from the database",
         message: {
-          err: 'availabiltyController.getSkills: ERROR: Check server logs for details',
+          err:
+            "availabiltyController.getSkills: ERROR: Check server logs for details",
         },
       });
     });
@@ -35,19 +37,19 @@ profileController.updateSkills = (req, res, next) => {
 };
 
 profileController.getCurrentAvailability = (req, res, next) => {
-	// const currentSchedule = [ req.params.currentSchedule ];
-	console.log('ROUND TWO BABY', res.locals.skills);
-	const tutorID = [ req.params.tutorid ];
-	console.log('MY TUTOR ID!!', tutorID);
-	const sqlQuery = `SELECT * FROM "public"."tutor_input_availability" 
+  // const currentSchedule = [ req.params.currentSchedule ];
+  console.log("ROUND TWO BABY", res.locals.skills);
+  const tutorID = [req.params.tutorid];
+  console.log("MY TUTOR ID!!", tutorID);
+  const sqlQuery = `SELECT * FROM "public"."tutor_input_availability"
 	WHERE tutor_id = $1`;
 
-	db.query(sqlQuery, tutorID).then((data) => {
-		// console.log('DATA!!!', data.rows[0].skills);
-		console.log('GIMME THAT DATA ROUND TWO', data.rows);
-		res.locals.availability = data.rows;
-		return next();
-	});
+  db.query(sqlQuery, tutorID).then((data) => {
+    // console.log('DATA!!!', data.rows[0].skills);
+    console.log("GIMME THAT DATA ROUND TWO", data.rows);
+    res.locals.availability = data.rows;
+    return next();
+  });
 };
 
 profileController.addAvailability = (req, res, next) => {

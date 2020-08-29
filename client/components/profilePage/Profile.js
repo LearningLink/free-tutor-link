@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Availability from './Availability.js';
-import SkillSet from './SkillSet';
+import React, { useState, useEffect } from "react";
+import Availability from "./Availability.js";
+import SkillSet from "./SkillSet";
 
 const Profile = (props) => {
   const [mainPage, setMainPage] = useState(true);
@@ -10,7 +10,7 @@ const Profile = (props) => {
 
   // who the user is, is currently hard coded
   useEffect(() => {
-    fetch('/profile/2')
+    fetch("/profile/2")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.availability);
